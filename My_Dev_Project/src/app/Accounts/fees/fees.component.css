@@ -1,0 +1,42 @@
+.card{
+    width: 800px;
+    height: 600px;
+    background: whitesmoke;
+}
+.content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    width: 200px;
+}
+.item {
+    float: left;
+    width: 425px;
+    height: 65px;
+    /* background: whitesmoke; */
+    margin: 12px;
+    margin-left: 28px;
+  }
+
+  .items {
+    float: left;
+    width: 880px;
+    height: 320px;
+    background: whitesmoke;
+    margin: 10px;
+    margin-left: 28px;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .mat-card{
+    margin-bottom: -108px;
+  }

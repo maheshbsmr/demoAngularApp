@@ -1,0 +1,41 @@
+
+<mat-toolbar color="primary" class="example-toolbar">
+	<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+	<h1 class="example-app-name">Application</h1>
+</mat-toolbar>
+<mat-sidenav-container style="height:700px;" class="example-container" autosize>
+	<mat-sidenav style="background-color:#3F51B5;" #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+		<mat-nav-list>
+        <span *ngFor="let item of menu">
+			<mat-accordion>
+				<mat-expansion-panel style="background-color: #3F51B5;">
+					<mat-expansion-panel-header>
+						<mat-panel-title>
+							<div fxLayout="row" fxLayoutAlign="space-between center" > 
+								<mat-icon>{{item.iconName}}</mat-icon>
+								{{item.displayName}}
+							  </div>
+						</mat-panel-title>
+					</mat-expansion-panel-header>
+					<span *ngFor="let child of item.children">
+						<mat-list-item [routerLink]="[child.route]">
+						  <!-- Entradas de cada submenú  -->
+						  <div fxLayout="row" fxLayoutAlign="space-between center" > 
+							<mat-icon>{{child.iconName}}</mat-icon>
+							{{child.displayName}}
+						  </div>
+						</mat-list-item>
+					  </span>
+				</mat-expansion-panel>
+			</mat-accordion>
+		</span>
+		</mat-nav-list>
+    <mat-nav-list>
+</mat-nav-list>
+	</mat-sidenav>
+	<div class="example-sidenav-content">
+	<br/>	<router-outlet></router-outlet>
+	</div>
+</mat-sidenav-container>
+
+
