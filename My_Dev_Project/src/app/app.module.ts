@@ -35,8 +35,10 @@ import { FeesComponent } from './Accounts/fees/fees.component';
 import { FeesSetupComponent } from './Accounts/feesSetup/fees-setup.component';
 import { StudentService } from './services/student.service';
 import { HttpClientModule } from '@angular/common/http';
-import { TimeComponent } from './Time/time/time.component';
 import { LoginComponent } from './Login/login/login.component';
+import { EntryComponent } from './Attendence/entry/entry.component';
+import { TimeSetupComponent } from './Time-Mgmt/time-setup/time-setup.component';
+import { EmployeeAccessComponent } from './profiles-access/employee-access/employee-access.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +46,10 @@ import { LoginComponent } from './Login/login/login.component';
     MainComponent,
     FeesComponent,
     FeesSetupComponent,
-    TimeComponent,
     LoginComponent,
+    EntryComponent,
+    TimeSetupComponent,
+    EmployeeAccessComponent,
   ],
   imports: [
     AppRoutingModule,

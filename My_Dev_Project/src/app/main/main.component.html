@@ -3,19 +3,24 @@
 <mat-toolbar color="primary" class="example-toolbar">
 	<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
 	<h1 class="example-app-name">Application</h1>
-	<button style="margin-left: 87%;" (click)="logOut()">LogOut</button>
+	<button style="margin-left: 87%;" (click)="logOut()">
+		<mat-icon>power_settings_new</mat-icon>
+	  </button>	
+	<!-- <button style="margin-left: 87%;" (click)="logOut()">LogOut</button> -->
 </mat-toolbar>
 <mat-sidenav-container style="height:700px;" class="example-container" autosize *ngIf ='IsNav'>
 	<mat-sidenav style="background-color:#3F51B5;" #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
 		<mat-nav-list>
-        <span *ngFor="let item of menu">
-			<mat-accordion>
-				<mat-expansion-panel style="background-color: #3F51B5;">
+        <span *ngFor="let item of filtermenu">
+			<mat-accordion >
+				<mat-expansion-panel style="background-color: #3F51B5;" >
 					<mat-expansion-panel-header>
-						<mat-panel-title>
-							<div fxLayout="row" fxLayoutAlign="space-between center" > 
-								<mat-icon>{{item.iconName}}</mat-icon>
-								{{item.displayName}}
+						<mat-panel-title >
+							<div fxLayout="row" fxLayoutAlign="space-between center"> 
+								<span >
+									<mat-icon>{{item.iconName}}</mat-icon>
+								<span>{{item.displayName}}</span>	
+								</span>
 							  </div>
 						</mat-panel-title>
 					</mat-expansion-panel-header>
