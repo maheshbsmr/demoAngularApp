@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { AuthenticationService } from '../services/authentication.service';
 
 
 @Component({
@@ -8,8 +9,8 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  constructor() { }
+IsNav:boolean= true;
+  constructor(private authenticationService : AuthenticationService) { }
 
   ngOnInit(): void {
     this.menu = [
@@ -20,12 +21,12 @@ export class MainComponent implements OnInit {
           {
             displayName: 'fees',
             iconName: 'how_to_reg',
-            route: '/fees'
+            route: '/home/fees'
           },
           { 
             displayName: 'FeesSetup',
             iconName: 'waves',
-            route: '/feesSetup'
+            route: '/home/feesSetup'
           }
         ]
       },
@@ -45,9 +46,9 @@ export class MainComponent implements OnInit {
           iconName: 'group',
           children: [
               {
-                displayName: 'Búsqueda Perfil',
-                iconName: 'search',
-                route: '/busquedaperfiles'
+                displayName: 'Time-setup',
+                iconName: 'access_time',
+                route: '/timesetup'
               }
             ]
           },
@@ -85,6 +86,9 @@ export class MainComponent implements OnInit {
     }
   }
 
-  
+  logOut(){
+    this.authenticationService.logout();
+
+  }
 
 }

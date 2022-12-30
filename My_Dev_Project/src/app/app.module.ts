@@ -35,6 +35,8 @@ import { FeesComponent } from './Accounts/fees/fees.component';
 import { FeesSetupComponent } from './Accounts/feesSetup/fees-setup.component';
 import { StudentService } from './services/student.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TimeComponent } from './Time/time/time.component';
+import { LoginComponent } from './Login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     MainComponent,
     FeesComponent,
     FeesSetupComponent,
+    TimeComponent,
+    LoginComponent,
   ],
   imports: [
     AppRoutingModule,
