@@ -1,0 +1,16 @@
+ui-table-scrollable-header-box {
+    margin-right: 17px !important;
+    }
+    
+    .ui-table-scrollable-body {
+    margin-right: 17px !important;
+    }
+    ::ng-deep.p-datatable-table{
+        text-align: center;
+    }
+
+    ::ng-deep.p-datatable {
+        position: relative;
+        width: 400px;
+    }
+    

@@ -1,0 +1,71 @@
+<p>
+    <mat-toolbar style="background-color: #F8F9FA; border : 1px solid #DEE2E6; height:73px;border-radius: 10px 10px 10px 10px;">
+    <div class="row" style="display: flex; gap:563px;">
+    <div class="col-xl-4">
+        <button (click)="addEmployee('3000ms', '1500ms')" style="margin-right: 0.5rem !important; width: 87px; height:41px; color: #FFFFFF; background-color: #21C25C; border: none;font-weight: 700;border-radius: 8px 8px 8px 8px;">New</button>
+        <button mat-raised-button color="warn" style="margin-right: 0.5rem !important; color: #FFFFFF; width: 30px; height:41px;border-radius: 8px 8px 8px 8px;"><mat-icon>delete</mat-icon></button>
+    </div>
+    <div class="col-xl-4">
+        <button  style="margin-right: 0.5rem !important; width: 135px; height:41px; color: #FFFFFF; background-color: #3B82F6; border: none;font-weight: 700;border-radius: 8px 8px 8px 8px;"><mat-icon>add</mat-icon>Import</button>
+        <button  style="margin-right: 0.5rem !important; width: 135px; height:41px; color: #FFFFFF; background-color: #A855F7; border: none;font-weight: 700;border-radius: 8px 8px 8px 8px;"><mat-icon> import_export</mat-icon>Export</button>
+    </div>
+</div>
+    </mat-toolbar>
+  </p>
+  <p>
+    <mat-toolbar style="background-color: #F8F9FA; border : 1px solid #DEE2E6; height:50px;border-radius: 10px 10px 10px 10px;">
+    </mat-toolbar>
+  </p>
+  
+  
+
+
+<div class="contaner">
+    <div class="items">
+        <table mat-table [dataSource]="employeeList" style="width: 1049px; height: 320px;" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="EmpId">
+              <th mat-header-cell *matHeaderCellDef> EmpId. </th>
+              <td mat-cell *matCellDef="let element"> {{element.EmpId}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="FirstName">
+              <th mat-header-cell *matHeaderCellDef> FirstName </th>    
+              <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="LastName">
+              <th mat-header-cell *matHeaderCellDef> LastName </th>
+              <td mat-cell *matCellDef="let element"> {{element.LastName}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="FullName">
+              <th mat-header-cell *matHeaderCellDef> FullName </th>
+              <td mat-cell *matCellDef="let element"> {{element.FullName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Image">
+                <th mat-header-cell *matHeaderCellDef> Image </th>
+                <td mat-cell *matCellDef="let element"><img [src]="element.Image" style="width:70px ; height: 70px;"> </td>
+              </ng-container>
+              
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element" class="action-link"> 
+              <button mat-button color="primary" style="width: 60px; height: 30px;">Promote</button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+     </div>
+   </div>

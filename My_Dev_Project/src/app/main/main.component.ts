@@ -82,13 +82,18 @@ constructor(private authenticationService: AuthenticationService) {
               isAdmin:this.user.roleType == Role.User ? false :true,   
               children: [
                 {
-                  displayName: 'fees',
+                  displayName: 'Add-Book',
                   iconName: 'how_to_reg',
                   route: '/home/fees',
                  
                 },
                 { 
-                  displayName: 'FeesSetup',
+                  displayName: 'View-Book',
+                  iconName: 'waves',
+                  route: '/home/feesSetup',
+                },
+                { 
+                  displayName: 'Allocate -Book',
                   iconName: 'waves',
                   route: '/home/feesSetup',
                 }
@@ -136,9 +141,27 @@ constructor(private authenticationService: AuthenticationService) {
               isAdmin:this.user.roleType == Role.User ? false :true,   
               children: [
                 {
-                  displayName: 'fees',
+                  displayName: 'View',
                   iconName: 'how_to_reg',
-                  route: '/home/fees',
+                  route: '/home/viewAdmission',
+                 
+                },
+                { 
+                  displayName: 'Dashboard',
+                  iconName: 'waves',
+                  route: '/home/admissionDashboard',
+                }
+              ]
+            },
+            {
+              displayName: 'Administration',
+              iconName: 'description',   
+              isAdmin:this.user.roleType == Role.User ? false :true,   
+              children: [
+                {
+                  displayName: 'employee',
+                  iconName: 'how_to_reg',
+                  route: '/home/employeeView',
                  
                 },
                 { 
@@ -149,7 +172,7 @@ constructor(private authenticationService: AuthenticationService) {
               ]
             },
             {
-              displayName: 'Accounts',
+              displayName: 'Payroll',
               iconName: 'description',   
               isAdmin:this.user.roleType == Role.User ? false :true,   
               children: [
@@ -167,7 +190,7 @@ constructor(private authenticationService: AuthenticationService) {
               ]
             },
             {
-              displayName: 'Perfiles',
+              displayName: 'Profiles',
               iconName: 'group',
               children: [
                   {

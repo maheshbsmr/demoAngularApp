@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FeesComponent } from './Accounts/fees/fees.component';
 import { FeesSetupComponent } from './Accounts/feesSetup/fees-setup.component';
+import { EmployeeComponent } from './Administration/employee/employee.component';
+import { AdmissionDashboardComponent } from './Admissions/admission-dashboard/admission-dashboard.component';
+import { ViewAdmissionComponent } from './Admissions/view-admission/view-admission.component';
 import { EntryComponent } from './Attendence/entry/entry.component';
 import { LoginComponent } from './Login/login/login.component';
 import { MainComponent } from './main/main.component';
@@ -19,6 +22,10 @@ const routes: Routes = [
   {path:'attendenceEntry',component:EntryComponent},
   {path:'timesetup',component:TimeSetupComponent},
   {path:'empAccess',component:EmployeeAccessComponent},
+  {path:'viewAdmission',component:ViewAdmissionComponent},
+  {path:'admissionDashboard',component:AdmissionDashboardComponent},
+  {path:'employeeView',component:EmployeeComponent},
+  
 
   ]},
   

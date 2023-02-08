@@ -32,6 +32,7 @@ export class FeesComponent implements OnInit {
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
   disableSelect = new FormControl(false);
+  feesType:any[]=[];
   constructor() { }
 
   ngOnInit(): void {
@@ -39,6 +40,13 @@ export class FeesComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value || '')),
     );
+    this.feesType=[
+      {'Id':1 , feesType:'Admission',disable:true},
+      {'Id':2 , feesType:'Computer',disable:true},
+      {'Id':3,  feesType:'Term',disable:true},
+      {'Id':4 , feesType:'Lab',disable:true},
+      {'Id':5 , feesType:'Bus',disable:true},
+    ]
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();

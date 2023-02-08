@@ -5,7 +5,7 @@
   <div class="content">
     <mat-card class="mat-elevation-z4" style="width: 950px; height: 500px; margin-top: -202px;">
       <mat-card-header>
-        <mat-card-title style="color: #3F51B5;">Setup</mat-card-title>
+        <mat-card-title style="color: #3F51B5;">Fee Initaiter</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <div class="contaner">
@@ -74,7 +74,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label>DateOfBirth:</label><label>{{std.dateOfBirth }}</label>
+                        <label>DateOfBirth:</label><label>{{std.dateOfBirth | date :'dd/MM/yyyy' }}</label>
                     </td>
                 </tr>
                 <tr>
@@ -88,15 +88,14 @@
                     </td>
                 </tr>
             </table>
-           
          </div>
          </div>
         </div>
       </mat-card-content>
-      <!-- <mat-card-actions>
-        <button mat-button color="primary">submit</button>
-        <button mat-button color="accent">cancel</button>
-      </mat-card-actions> -->
+    
     </mat-card>
+    
   </div>
+    <button mat-button color="primary">submit</button>
+    <button mat-button color="accent">cancel</button>
 </div>

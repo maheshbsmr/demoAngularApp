@@ -23,6 +23,12 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "angular-material": "^1.2.5",
+    "chart.js": "^4.2.0",
+    "font-awesome": "^4.7.0",
+    "helper-date": "^1.0.1",
+    "moment": "^2.29.4",
+    "primeicons": "^6.0.1",
+    "primeng": "13.4.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

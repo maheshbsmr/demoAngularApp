@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatOption } from '@angular/material/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import * as moment from 'moment';
 import { map, Observable, startWith } from 'rxjs';
 import {student } from 'src/app/model/student';
 import { StudentService } from 'src/app/services/student.service';
@@ -31,7 +32,7 @@ export class FeesSetupComponent implements OnInit {
     this.feesType=[
       {'Id':1 , feesType:'Admission',disable:true},
       {'Id':2 , feesType:'Computer',disable:true},
-      {'Id':3, feesType:'Term',disable:true},
+      {'Id':3,  feesType:'Term',disable:true},
       {'Id':4 , feesType:'Lab',disable:true},
       {'Id':5 , feesType:'Bus',disable:true},
     ]
@@ -63,7 +64,7 @@ export class FeesSetupComponent implements OnInit {
   
   }
   OnUidSelected(option: MatOption){
-    debugger;
+      debugger;
       this.filterstdList = this.studentList.filter(x => x.StdId == option.value);
       let stdObject = Object.assign({}, ...this.filterstdList);
       this.std = stdObject
@@ -74,5 +75,11 @@ export class FeesSetupComponent implements OnInit {
       this.std.bloodGroup = stdObject.BloodGroup;
       this.std.address = stdObject.Address;
 
+       let date = new Date();
+       let beginYear = moment(date).format('dd/MM/yyy').toString()
+       for(let i=0 ; i <= 4; i++){
+        var newdate = new Date();
+        var res = date.setFullYear(date.getFullYear() + i).toString();
+       }
   }
 }

@@ -1,0 +1,21 @@
+.content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    width: 200px;
+}
+.matCard{
+    flex: 1 1 25%;
+    box-sizing: border-box;
+    max-width: 15%;
+    padding: 0px 16px 16px 0px;
+}
+.addmission-profile-image{
+    width: 40px;
+    height: 40px;
+    margin-left: 138px;
+    border: 1px solid grey;
+    /* padding: 5px; */
+    margin-top: -11px;
+  }

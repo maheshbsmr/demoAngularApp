@@ -1,20 +1,22 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY, Observable, throwError } from 'rxjs';
-import { student } from '../model/student';
+import { catchError, EMPTY, Observable } from 'rxjs';
+import { employee } from '../model/employee';
+
 @Injectable({
   providedIn: 'root'
 })
-export class StudentService {
+export class EmployeeService {
   apiUrl: string ='https://localhost:44371/api/'
-  constructor(private http:HttpClient) { }
+  constructor(private http :HttpClient) { }
 
-  getAllStudent():Observable<student[]>{
+  getAllStudent():Observable<employee[]>{
     const headers = new HttpHeaders().set('content-type', 'application/json'); 
-    return this.http.get<student[]>(this.apiUrl+'Student/getStudentList',{headers}).pipe(
+    return this.http.get<employee[]>(this.apiUrl+'Employee/getemployeelist',{headers}).pipe(
       catchError(()=>{
         return EMPTY;
       })
     );
   }
+  
 }

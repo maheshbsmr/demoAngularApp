@@ -39,6 +39,33 @@ import { LoginComponent } from './Login/login/login.component';
 import { EntryComponent } from './Attendence/entry/entry.component';
 import { TimeSetupComponent } from './Time-Mgmt/time-setup/time-setup.component';
 import { EmployeeAccessComponent } from './profiles-access/employee-access/employee-access.component';
+import { ViewAdmissionComponent } from './Admissions/view-admission/view-admission.component';
+import { AdmissionDashboardComponent } from './Admissions/admission-dashboard/admission-dashboard.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {TableModule} from 'primeng/table';
+import {ToastModule} from 'primeng/toast';
+import {CalendarModule} from 'primeng/calendar';
+import {SliderModule} from 'primeng/slider';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {ContextMenuModule} from 'primeng/contextmenu';
+import {DialogModule} from 'primeng/dialog';
+import {ButtonModule} from 'primeng/button';
+import {DropdownModule} from 'primeng/dropdown';
+import {ProgressBarModule} from 'primeng/progressbar';
+
+import {FileUploadModule} from 'primeng/fileupload';
+import {ToolbarModule} from 'primeng/toolbar';
+import {RatingModule} from 'primeng/rating';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {InputNumberModule} from 'primeng/inputnumber';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import {ChartModule} from 'primeng/chart';
+import { EmployeeComponent } from './Administration/employee/employee.component';
+import { AddEmployeeComponent } from './Administration/addEmployee/add-employee.component';
+//import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -50,6 +77,10 @@ import { EmployeeAccessComponent } from './profiles-access/employee-access/emplo
     EntryComponent,
     TimeSetupComponent,
     EmployeeAccessComponent,
+    ViewAdmissionComponent,
+    AdmissionDashboardComponent,
+    EmployeeComponent,
+    AddEmployeeComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -83,7 +114,28 @@ import { EmployeeAccessComponent } from './profiles-access/employee-access/emplo
       MatTreeModule,
       MatListModule,
       MatCardModule,
-   
+      InputTextModule,
+      TableModule,
+    CalendarModule,
+		SliderModule,
+		DialogModule,
+		MultiSelectModule,
+		ContextMenuModule,
+		DropdownModule,
+		ButtonModule,
+		ToastModule,
+    InputTextModule,
+    ProgressBarModule,
+    HttpClientModule,
+    FileUploadModule,
+    ToolbarModule,
+    RatingModule,
+    FormsModule,
+    RadioButtonModule,
+    InputNumberModule,
+    ConfirmDialogModule,
+    InputTextareaModule,
+    ChartModule
   ],
   providers: [StudentService],
   bootstrap: [AppComponent],
