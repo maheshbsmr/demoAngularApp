@@ -65,7 +65,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import {ChartModule} from 'primeng/chart';
 import { EmployeeComponent } from './Administration/employee/employee.component';
 import { AllocateDepartmentComponent } from './Administration/employee/allocateDepartment/allocate-department.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ConfirmationComponent } from './dialogs/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -80,11 +81,13 @@ import { AllocateDepartmentComponent } from './Administration/employee/allocateD
     ViewAdmissionComponent,
     AdmissionDashboardComponent,
     EmployeeComponent,
-    AllocateDepartmentComponent
+    AllocateDepartmentComponent,
+    ConfirmationComponent
   ],
   imports: [
     AppRoutingModule,
      BrowserModule,
+		ToastModule,
      BrowserAnimationsModule,
      HttpClientModule,
     FlexLayoutModule,
@@ -123,7 +126,6 @@ import { AllocateDepartmentComponent } from './Administration/employee/allocateD
 		ContextMenuModule,
 		DropdownModule,
 		ButtonModule,
-		ToastModule,
     InputTextModule,
     ProgressBarModule,
     HttpClientModule,
@@ -135,9 +137,10 @@ import { AllocateDepartmentComponent } from './Administration/employee/allocateD
     InputNumberModule,
     ConfirmDialogModule,
     InputTextareaModule,
-    ChartModule
+    ChartModule,
+    MatSnackBarModule
   ],
-  providers: [StudentService],
+  providers: [StudentService,MessageService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

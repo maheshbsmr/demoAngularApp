@@ -4,6 +4,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 import {MatDialog} from '@angular/material/dialog';
 import { AddEmployeeComponent } from '../addEmployee/add-employee.component';
 import { AllocateDepartmentComponent } from './allocateDepartment/allocate-department.component';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-employee',
@@ -15,7 +16,7 @@ export class EmployeeComponent implements OnInit {
   employeeList :any;
   items:any;
   displayedColumns: string[] = ['EmpId', 'FirstName', 'LastName', 'FullName','Image','Allocate','action'];
-  constructor(private employee : EmployeeService,public dialog: MatDialog) { }
+  constructor(private employee : EmployeeService,public dialog: MatDialog, private notificationService : NotificationService) { }
 
   ngOnInit(): void {
     this.employee.getAllStudent().subscribe(response=>{
@@ -63,7 +64,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   AllocateDept(element:any){
-    debugger;
     const dialogRef = this.dialog.open(AllocateDepartmentComponent, {
       width:'450px',height:'650px',
       data:element,
@@ -72,6 +72,15 @@ export class EmployeeComponent implements OnInit {
       );
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+    });
+  }
+  delete(){
+    this.notificationService.confirmation("it will be gone forever", () => {
+      this.notificationService.success("confirm oked");
+    },
+    'Are you sure?',
+     ()  => {
+      this.notificationService.error("confirm canceled");
     });
   }
   
