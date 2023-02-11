@@ -1,0 +1,33 @@
+<label style="font-size: large; font-weight: bold;">Mapping Department</label>
+<mat-icon style="margin-left: 189px;">close</mat-icon>
+<div class="container">
+    <div class="parent">
+        <div class="child">
+            <label class="label">EmpId</label>
+            <input class="txtInput" [disabled]="txtEnable" [(ngModel)]="data.EmpId" id="empId" type="text"> 
+        </div>
+        <div class="child">
+            <label class="label">EmpName</label>
+            <input class="txtInput" [disabled]="txtEnable" [(ngModel)]="data.FullName" id="empName" type="text"> 
+        </div>
+        <div class="child">
+            <label class="label">Joining Date</label>
+            <input class="txtInput" id="empName" [(ngModel)] = "data.JoiningDate" type="text"> 
+        </div>
+        <div class="child">
+            <label class="label">Department</label>
+            <select name="dept" id="dept" class="txtInput">
+                <option  *ngFor = "let item of department">{{item.DeptDescription}}</option>
+            </select>
+        </div>
+        <div class="child">
+            <label class="label">EmpName</label>
+            <input class="txtInput" id="empName" type="text"> 
+        </div>
+        <mat-dialog-actions style="margin-left: 123px; margin-top: 80px;">
+            <button style="color: #3B82F6;" mat-button [mat-dialog-close]="true"><mat-icon style="color: #3B82F6;">close</mat-icon>Cancel</button>
+            <button style="color: #3B82F6;"  mat-button mat-dialog-close><mat-icon>done</mat-icon >Save</button>
+          </mat-dialog-actions>
+    </div>
+   
+</div>

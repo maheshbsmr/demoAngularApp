@@ -3,6 +3,7 @@ import { employee } from 'src/app/model/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import {MatDialog} from '@angular/material/dialog';
 import { AddEmployeeComponent } from '../addEmployee/add-employee.component';
+import { AllocateDepartmentComponent } from './allocateDepartment/allocate-department.component';
 
 @Component({
   selector: 'app-employee',
@@ -13,7 +14,7 @@ export class EmployeeComponent implements OnInit {
 
   employeeList :any;
   items:any;
-  displayedColumns: string[] = ['EmpId', 'FirstName', 'LastName', 'FullName','Image','action'];
+  displayedColumns: string[] = ['EmpId', 'FirstName', 'LastName', 'FullName','Image','Allocate','action'];
   constructor(private employee : EmployeeService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -53,6 +54,19 @@ export class EmployeeComponent implements OnInit {
       data:null,
       enterAnimationDuration,
       exitAnimationDuration,
+    }
+
+      );
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  AllocateDept(element:any){
+    debugger;
+    const dialogRef = this.dialog.open(AllocateDepartmentComponent, {
+      width:'450px',height:'650px',
+      data:element,
     }
 
       );

@@ -64,8 +64,8 @@ import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import {ChartModule} from 'primeng/chart';
 import { EmployeeComponent } from './Administration/employee/employee.component';
-import { AddEmployeeComponent } from './Administration/addEmployee/add-employee.component';
-//import {MatToolbarModule} from '@angular/material/toolbar';
+import { AllocateDepartmentComponent } from './Administration/employee/allocateDepartment/allocate-department.component';
+
 
 @NgModule({
   declarations: [
@@ -80,7 +80,7 @@ import { AddEmployeeComponent } from './Administration/addEmployee/add-employee.
     ViewAdmissionComponent,
     AdmissionDashboardComponent,
     EmployeeComponent,
-    AddEmployeeComponent,
+    AllocateDepartmentComponent
   ],
   imports: [
     AppRoutingModule,
@@ -139,6 +139,6 @@ import { AddEmployeeComponent } from './Administration/addEmployee/add-employee.
   ],
   providers: [StudentService],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ,NO_ERRORS_SCHEMA]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
