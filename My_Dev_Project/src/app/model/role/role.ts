@@ -1,4 +1,8 @@
 export enum Role {
     User = 'User',
-    Admin = 'Admin'
+    Admin = 'Admin',
+    Library='Librarian',
+    SuperUser = 'SuperUser',
+    None = 'None',
+    Examcell ='Examcell'
 }

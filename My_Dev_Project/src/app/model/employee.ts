@@ -16,6 +16,7 @@ export interface employee {
     image: string;
     joiningDate: string;
     leaveDate: string;
+    deptName:string;
     // cREATED_DATE: string;
     // uPDATE_BY: string;
     // uPDATED_DATE: string;

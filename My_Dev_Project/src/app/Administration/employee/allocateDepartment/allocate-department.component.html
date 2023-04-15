@@ -16,8 +16,8 @@
         </div>
         <div class="child">
             <label class="label">Department</label>
-            <select name="dept" id="dept" class="txtInput">
-                <option  *ngFor = "let item of department">{{item.DeptDescription}}</option>
+            <select name="dept" id="dept" class="txtInput" (change)="selectionChange($event)">
+                <option  *ngFor = "let item of department" [value]="item.DeptId">{{item.DeptDescription}}</option>
             </select>
         </div>
         <div class="child">
@@ -26,7 +26,7 @@
         </div>
         <mat-dialog-actions style="margin-left: 123px; margin-top: 80px;">
             <button style="color: #3B82F6;" mat-button [mat-dialog-close]="true"><mat-icon style="color: #3B82F6;">close</mat-icon>Cancel</button>
-            <button (click)="save()" style="color: #3B82F6;"  mat-button mat-dialog-close><mat-icon>done</mat-icon >Save</button>
+            <button (click)="save(data)" style="color: #3B82F6;"  mat-button mat-dialog-close><mat-icon>done</mat-icon >Save</button>
           </mat-dialog-actions>
     </div>
    

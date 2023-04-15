@@ -37,7 +37,8 @@ constructor(private authenticationService: AuthenticationService) {
           {
             displayName: 'Accounts',
             iconName: 'description',   
-            isAdmin:this.user.roleType == Role.User ? false :true,   
+            isAdmin:this.user.roleType == Role.Admin ? true:false,
+            //== Role.User ? false :true,   
             children: [
               {
                 displayName: 'fees',
@@ -66,7 +67,8 @@ constructor(private authenticationService: AuthenticationService) {
             {
               displayName: 'Time-Mgmt',
               iconName: 'group',
-              isAdmin:this.user.roleType == Role.User ? false :true, 
+              isAdmin:this.user.roleType ,
+              //== Role.User ? false :true, 
               children: [
                   {
                     displayName: 'Time-setup',
@@ -79,7 +81,7 @@ constructor(private authenticationService: AuthenticationService) {
             {
               displayName: 'Library',
               iconName: 'description',   
-              isAdmin:this.user.roleType == Role.User ? false :true,   
+              isAdmin:this.user.role == Role.Library ? true : this.user.role == Role.Admin ? true : false,   
               children: [
                 {
                   displayName: 'Add-Book',
@@ -102,7 +104,7 @@ constructor(private authenticationService: AuthenticationService) {
             {
               displayName: 'Examinatin',
               iconName: 'description',   
-              isAdmin:this.user.roleType == Role.User ? false :true,   
+              isAdmin:this.user.role  == Role.Examcell ? true :false,   
               children: [
                 {
                   displayName: 'fees',
@@ -120,7 +122,8 @@ constructor(private authenticationService: AuthenticationService) {
             {
               displayName: 'Faculty',
               iconName: 'description',   
-              isAdmin:this.user.roleType == Role.User ? false :true,   
+              isAdmin:this.user.role == Role.Admin ? true :false,
+              // == Role.User ? false :true,   
               children: [
                 {
                   displayName: 'fees',
@@ -138,7 +141,7 @@ constructor(private authenticationService: AuthenticationService) {
             {
               displayName: 'Admission',
               iconName: 'description',   
-              isAdmin:this.user.roleType == Role.User ? false :true,   
+              isAdmin:this.user.role == Role.Admin ? true :false,   
               children: [
                 {
                   displayName: 'View',
@@ -156,7 +159,8 @@ constructor(private authenticationService: AuthenticationService) {
             {
               displayName: 'Administration',
               iconName: 'description',   
-              isAdmin:this.user.roleType == Role.User ? false :true,   
+              isAdmin:this.user.roleType,
+              // == Role.User ? false :true,   
               children: [
                 {
                   displayName: 'employee',
@@ -174,7 +178,7 @@ constructor(private authenticationService: AuthenticationService) {
             {
               displayName: 'Payroll',
               iconName: 'description',   
-              isAdmin:this.user.roleType == Role.User ? false :true,   
+              isAdmin:this.user.roleType == Role.User,
               children: [
                 {
                   displayName: 'fees',
@@ -200,8 +204,24 @@ constructor(private authenticationService: AuthenticationService) {
                   }
                 ]
               },
+              {
+                displayName: 'settings',
+                iconName: 'settings_applications',   
+                isAdmin:this.user.role  == Role.Admin ? true :false,   
+           
+                children: [
+                  {
+                    displayName: 'Global',
+                    iconName: 'settings_applications',
+                    route: '/home/globalSettings',
+                   
+                  }, 
+                
+                ]
+              },
         ];
-        this.filtermenu = this.menu.filter(x=>x.isAdmin != false);
+        debugger;
+        this.filtermenu = this.menu.filter(x=>x.isAdmin == true);
       }
 
   mouseenter() {

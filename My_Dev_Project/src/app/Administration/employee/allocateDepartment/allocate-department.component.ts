@@ -1,7 +1,8 @@
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MessageService } from 'primeng/api';
-import { Department } from 'src/app/model/department';
+import { Department, deptMapping } from 'src/app/model/department';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { NotificationService } from 'src/app/services/notification.service';
 interface City {
@@ -19,7 +20,8 @@ interface City {
 export class AllocateDepartmentComponent implements OnInit {
   cities: City[];
   selectedCity: City;
-  department:any;
+  department:any[]=[];
+  dept:any[]=[];
   txtEnable:boolean = true;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,private employeeService : EmployeeService,private messageService: MessageService
     ,private notificationService : NotificationService) { 
@@ -40,10 +42,28 @@ export class AllocateDepartmentComponent implements OnInit {
     this.department = item;
    })
   }
-  save(){
+  save(data:any){
     debugger;
+    let dept = new deptMapping;
+    dept.deptId = this.dept[0].DeptId;
+    dept.deptName = this.dept[0].DeptDescription;
+    dept.empId = parseInt(data.EmpId);
+    this.employeeService.postMapping(dept).subscribe((res)=>{
     this.notificationService.success("success");
+      console.log('response received')
+    }, (error:HttpErrorResponse) => {
+      this.notificationService.error(error.error.error[0]);
+       console.log(error);
+   // throw error;
+    });
+
    // this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
   }
+  selectionChange(event:any){
+    debugger;
+    this.dept = [];
+    let deptId = event.target.value;
+     this.dept = this.department.filter(x=>x.DeptId == deptId);
 
+  }
 }

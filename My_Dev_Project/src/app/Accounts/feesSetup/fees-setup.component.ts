@@ -14,6 +14,7 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class FeesSetupComponent implements OnInit {
   
+
   options: string[] = ['One', 'Two', 'Three'];
   feesType:any[]=[];
   studentList:student[];
@@ -21,6 +22,8 @@ export class FeesSetupComponent implements OnInit {
   filteredOptions: Observable<student[]>;
   myControl = new FormControl('');
   disableSelect = new FormControl(false);
+  acadamicsCopy :any[]=[];
+  acadamics:any[]=[];
   public std:student = new student()
   constructor(private studentService:StudentService,private sanitizer:DomSanitizer) { }
 
@@ -74,12 +77,18 @@ export class FeesSetupComponent implements OnInit {
       this.std.mobileNumber = stdObject.MobileNumber;
       this.std.bloodGroup = stdObject.BloodGroup;
       this.std.address = stdObject.Address;
+      for(let i = 0 ; i < 5; i++){
+        const aYearFromNow = new Date();
+        aYearFromNow.setFullYear(aYearFromNow.getFullYear() + i);
+        this.acadamics.push(aYearFromNow);
+      }
+      this.acadamicsCopy=[];
+      this.acadamicsCopy[0] = moment(this.acadamics[0]).format('yyyy').toString() + '-' +    moment(this.acadamics[1]).format('yyyy').toString() ;
+      this.acadamicsCopy[1] = moment(this.acadamics[1]).format('yyyy').toString() + '-' +    moment(this.acadamics[2]).format('yyyy').toString() ;
+      this.acadamicsCopy[2] = moment(this.acadamics[2]).format('yyyy').toString() + '-' +    moment(this.acadamics[3]).format('yyyy').toString() ;
+      this.acadamicsCopy[3] = moment(this.acadamics[3]).format('yyyy').toString() + '-' +    moment(this.acadamics[4]).format('yyyy').toString() ;
 
-       let date = new Date();
-       let beginYear = moment(date).format('dd/MM/yyy').toString()
-       for(let i=0 ; i <= 4; i++){
-        var newdate = new Date();
-        var res = date.setFullYear(date.getFullYear() + i).toString();
-       }
   }
 }
+
+

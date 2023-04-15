@@ -67,6 +67,8 @@ import { EmployeeComponent } from './Administration/employee/employee.component'
 import { AllocateDepartmentComponent } from './Administration/employee/allocateDepartment/allocate-department.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ConfirmationComponent } from './dialogs/confirmation.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { GlobalSettingsComponent } from './GlobalSettings/global-settings.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,8 @@ import { ConfirmationComponent } from './dialogs/confirmation.component';
     AdmissionDashboardComponent,
     EmployeeComponent,
     AllocateDepartmentComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    GlobalSettingsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -138,7 +141,8 @@ import { ConfirmationComponent } from './dialogs/confirmation.component';
     ConfirmDialogModule,
     InputTextareaModule,
     ChartModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule
   ],
   providers: [StudentService,MessageService],
   bootstrap: [AppComponent],

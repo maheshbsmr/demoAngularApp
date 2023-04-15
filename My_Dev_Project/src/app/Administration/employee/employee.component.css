@@ -143,6 +143,25 @@ ui-table-scrollable-header-box {
     padding-top: 0px;
     padding-bottom: 0px;
   }
+  .Edit-column {
+    width: 15%;
+    padding-right: 3rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .Delete-column {
+    width: 15%;
+    padding-right: 3rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .select-column {
+    width: 15%;
+    padding-right: 3rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  
   
   .state-column {
     width: 5%;

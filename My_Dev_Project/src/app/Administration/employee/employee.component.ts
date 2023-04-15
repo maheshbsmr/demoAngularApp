@@ -1,10 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { employee } from 'src/app/model/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import {MatDialog} from '@angular/material/dialog';
 import { AddEmployeeComponent } from '../addEmployee/add-employee.component';
 import { AllocateDepartmentComponent } from './allocateDepartment/allocate-department.component';
 import { NotificationService } from 'src/app/services/notification.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { SelectionModel } from '@angular/cdk/collections';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-employee',
@@ -13,12 +17,17 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class EmployeeComponent implements OnInit {
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  selection = new SelectionModel<Element>(true, []);
+  show :boolean = false;
   employeeList :any;
   items:any;
-  displayedColumns: string[] = ['EmpId', 'FirstName', 'LastName', 'FullName','Image','Allocate','action'];
+  isMultipleDelete : boolean = false;
+  displayedColumns: string[] = ['select','EmpId', 'FirstName', 'LastName', 'FullName','Image','Department','Tagging','Edit','Delete'];
   constructor(private employee : EmployeeService,public dialog: MatDialog, private notificationService : NotificationService) { }
 
   ngOnInit(): void {
+    this.isMultipleDelete = true;
     this.employee.getAllStudent().subscribe(response=>{
       debugger
       this.employeeList = response;
@@ -26,6 +35,7 @@ export class EmployeeComponent implements OnInit {
         item.Image = 'data:image/jpg;base64,' + item.Image;
       })
       console.log(this.employeeList);
+      this.employeeList  = new MatTableDataSource<employee>(this.employeeList);
     })
 
     this.items = [
@@ -48,6 +58,9 @@ export class EmployeeComponent implements OnInit {
           routerLink: '/fileupload'
       }
   ];
+  }
+  ngAfterViewInit() {
+    this.employeeList.paginator = this.paginator;
   }
   addEmployee(enterAnimationDuration: string, exitAnimationDuration: string){
     const dialogRef = this.dialog.open(AddEmployeeComponent, {
@@ -82,6 +95,28 @@ export class EmployeeComponent implements OnInit {
      ()  => {
       this.notificationService.error("confirm canceled");
     });
+  }
+  deleteRecord(){
+    this.notificationService.confirmation("it will be gone forever", () => {
+      this.notificationService.success("confirm oked");
+    },
+    'Are you sure?',
+     ()  => {
+      this.notificationService.error("confirm canceled");
+    });
+  }
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.employeeList.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle() {
+    debugger;
+    this.isAllSelected() ?
+      this.selection.clear() :
+      this.employeeList.data.forEach((row:any) => this.selection.select(row));
+      this.isAllSelected() ? this.isMultipleDelete = false :   this.isMultipleDelete = true;
   }
   
 }
